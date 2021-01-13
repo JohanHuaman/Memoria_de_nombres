@@ -90,9 +90,14 @@ public class MostarMenu {
         Scanner sc2 = new Scanner(System.in);
         String modif = sc2.nextLine();
 
-        lista.set(index,modif);
+        if((index + 1) > lista.size()){
+            System.out.println("Por favor ingrese una opción correcta");
+        }else{
+            lista.set(index,modif);
 
-        System.out.println("Modificado!");
+            System.out.println("Modificado!");
+        }
+
     }
 
     private static void Eliminar(){
