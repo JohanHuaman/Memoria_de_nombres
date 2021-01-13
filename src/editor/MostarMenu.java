@@ -94,10 +94,8 @@ public class MostarMenu {
             System.out.println("Por favor ingrese una opción correcta");
         }else{
             lista.set(index,modif);
-
             System.out.println("Modificado!");
         }
-
     }
 
     private static void Eliminar(){
@@ -111,8 +109,12 @@ public class MostarMenu {
         Scanner sc = new Scanner(System.in);
         int index = sc.nextInt();
 
-        lista.remove(index);
-        System.out.println("Eliminado!");
+        if((index + 1) > lista.size()){
+            System.out.println("Por favor ingrese una opción correcta");
+        }else{
+            lista.remove(index);
+            System.out.println("Eliminado!");
+        }
     }
 
     private static void Borrar(){
