@@ -1,9 +1,7 @@
 package main.dao;
 
 import main.model.Persona;
-
 import static main.MenuVista.lista;
-
 import java.util.Scanner;
 
 public class MenuImpl implements Menu{
@@ -63,27 +61,38 @@ public class MenuImpl implements Menu{
 
     @Override
     public void EliminarElemento() {
-        System.out.println("Número del nombre a eliminar:");
 
-        for (int i = 0; i < lista.size(); i++) {
-            System.out.println(i+ ". " +lista.get(i));
+        if(lista.size() == 0){
+            System.out.println("\nNo hay elementos para eliminar");
+        } else {
+            System.out.println("Número del nombre a eliminar:");
+
+            for (int i = 0; i < lista.size(); i++) {
+                System.out.println(i+ ". " +lista.get(i));
+            }
+
+            System.out.println("\nNúmero?: ");
+            Scanner sc = new Scanner(System.in);
+            int index = sc.nextInt();
+
+            if((index + 1) > lista.size()){
+                System.out.println("Por favor ingrese una opción correcta");
+            }else{
+                lista.remove(index);
+                System.out.println("Eliminado!");
+            }
         }
 
-        System.out.println("\nNúmero?: ");
-        Scanner sc = new Scanner(System.in);
-        int index = sc.nextInt();
-
-        if((index + 1) > lista.size()){
-            System.out.println("Por favor ingrese una opción correcta");
-        }else{
-            lista.remove(index);
-            System.out.println("Eliminado!");
-        }
     }
 
     @Override
     public void BorrarLista() {
-        lista.clear();
-        System.out.println("Borrado!");
+        if(lista.size() == 0){
+            System.out.println("\nNo hay elementos para eliminar");
+        } else {
+            lista.clear();
+            System.out.println("Borrado!");
+        }
+
     }
 }
