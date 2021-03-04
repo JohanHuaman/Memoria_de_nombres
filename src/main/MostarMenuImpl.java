@@ -1,11 +1,15 @@
-package editor;
+package main;
+
+import main.dao.MenuImpl;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class MostarMenu {
+public class MostarMenuImpl {
 
     public static ArrayList<String> lista = new ArrayList<>();
+    public static MenuImpl x;
+
 
     public static void Menu(){
 
@@ -29,22 +33,22 @@ public class MostarMenu {
 
             switch (response) {
                 case 1:
-                    Agregar();
+                    x.AgregarElemento();
                     break;
                 case 2:
-                    Listado();
+                    x.Listado();
                     break;
                 case 3:
-                    Listado2();
+                    x.Listado2();
                     break;
                 case 4:
-                    Modificar();
+                    x.ModificarElemento();
                     break;
                 case 5:
-                    Eliminar();
+                    x.EliminarElemento();
                     break;
                 case 6:
-                    Borrar();
+                    x.BorrarLista();
                     break;
                 case 0:
                     System.out.println("Nos vemos!");
@@ -56,6 +60,7 @@ public class MostarMenu {
         }while(response !=0);
     }
 
+    /*
     private static void Agregar(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese nombre: ");
@@ -121,4 +126,5 @@ public class MostarMenu {
         lista.clear();
         System.out.println("Borrado!");
     }
+     */
 }
