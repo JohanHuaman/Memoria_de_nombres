@@ -1,20 +1,23 @@
 package main.dao;
 
-import static main.MostarMenuImpl.lista;
+import main.model.Persona;
 
-import java.util.ArrayList;
+import static main.MenuVista.lista;
+
 import java.util.Scanner;
 
 public class MenuImpl implements Menu{
-
-    //public static ArrayList<String> lista = new ArrayList<>();
 
     @Override
     public void AgregarElemento() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese nombre: ");
         String add = sc.nextLine();
-        lista.add(add);
+
+        Persona p = new Persona();
+        p.setNombre(add);
+
+        lista.add(p);
     }
 
     @Override
@@ -47,10 +50,13 @@ public class MenuImpl implements Menu{
         Scanner sc2 = new Scanner(System.in);
         String modif = sc2.nextLine();
 
+        Persona p = new Persona();
+        p.setNombre(modif);
+
         if((index + 1) > lista.size()){
             System.out.println("Por favor ingrese una opción correcta");
         }else{
-            lista.set(index,modif);
+            lista.set(index,p);
             System.out.println("Modificado!");
         }
     }
